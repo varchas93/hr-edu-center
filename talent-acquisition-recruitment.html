@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module 2: Talent Acquisition & Recruitment</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        h1, h2, h3, h4 {
+            color: #2c3e50;
+            margin-top: 1.5em;
+        }
+        h1 {
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+            text-align: center;
+            color: #2980b9;
+        }
+        h2 {
+            border-bottom: 2px solid #bdc3c7;
+            padding-bottom: 5px;
+            margin-top: 40px;
+        }
+        .concept {
+            background-color: white;
+            border-left: 5px solid #3498db;
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 0 5px 5px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .concept h3 {
+            margin-top: 0;
+            color: #3498db;
+        }
+        .quiz-section {
+            background-color: #f2f9ff;
+            border: 1px solid #bbdefb;
+            padding: 20px;
+            border-radius: 5px;
+            margin: 30px 0;
+        }
+        .case-study {
+            background-color: #fff8e1;
+            border: 1px solid #ffe082;
+            padding: 20px;
+            border-radius: 5px;
+            margin: 30px 0;
+        }
+        .question {
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px dotted #ddd;
+        }
+        .options {
+            margin-left: 20px;
+        }
+        button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+        .answer-key {
+            display: none;
+            background-color: #e8f5e9;
+            border: 1px solid #c8e6c9;
+            padding: 20px;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        footer {
+            margin-top: 50px;
+            text-align: center;
+            font-size: 14px;
+            color: #7f8c8d;
+            padding: 20px;
+            border-top: 1px solid #ddd;
+        }
+        .nav-menu {
+            background-color: #2c3e50;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 30px;
+        }
+        .nav-menu ul {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+            justify-content: space-around;
+            margin: 0;
+        }
+        .nav-menu li a {
+            color: white;
+            text-decoration: none;
+            padding: 8px 15px;
+            border-radius: 3px;
+            transition: background-color 0.3s;
+        }
+        .nav-menu li a:hover {
+            background-color: #3498db;
+        }
+    </style>
+</head>
+<body>
+    <h1>Module 2: Talent Acquisition & Recruitment</h1>
+    
+    <div class="nav-menu">
+        <ul>
+            <li><a href="#concepts">Key Concepts</a></li>
+            <li><a href="#quiz">Quiz</a></li>
+            <li><a href="#case-study">Case Study</a></li>
+        </ul>
+    </div>
+    
+    <section id="concepts">
+        <h2>Key Concepts in Talent Acquisition & Recruitment</h2>
+        
+        <div class="concept">
+            <h3>Workforce Planning & Job Analysis</h3>
+            <p><strong>Workforce Planning</strong>: The process of analyzing current workforce capabilities, forecasting future talent needs, and identifying gaps that need to be filled through recruitment, training, or restructuring. It aligns human resource needs with business objectives.</p>
+            <p><strong>Job Analysis</strong>: The systematic process of collecting information about job duties, responsibilities, necessary skills, outcomes, and work environment. It forms the foundation for job descriptions, hiring criteria, and compensation decisions.</p>
+        </div>
+        
+        <div class="concept">
+            <h3>Writing Effective Job Descriptions</h3>
+            <p>Job descriptions translate job analysis findings into a clear document that outlines the position's essential functions, responsibilities, qualifications, and working conditions. Effective job descriptions balance being comprehensive enough to accurately represent the role while remaining concise and engaging to attract candidates.</p>
+            <p>Key elements include:</p>
+            <ul>
+                <li>Job title and classification</li>
+                <li>Reporting relationships</li>
+                <li>Essential functions and responsibilities</li>
+                <li>Required qualifications (education, experience, skills)</li>
+                <li>Physical requirements and working conditions</li>
+                <li>Salary range and benefits (optional)</li>
+                <li>Company overview and culture statement</li>
+            </ul>
+        </div>
+        
+        <div class="concept">
+            <h3>Sourcing Strategies</h3>
+            <p><strong>Internal Recruitment</strong>: Filling positions with existing employees through promotions, transfers, or role changes. Benefits include faster onboarding, known performance records, and improved morale.</p>
+            <p><strong>External Recruitment</strong>: Attracting candidates from outside the organization through job boards, social media, recruiters, campus events, or professional networks. Brings fresh perspectives but typically requires more time and resources.</p>
+            <p>Common sourcing channels include:</p>
+            <ul>
+                <li>Employee referral programs</li>
+                <li>Company career website</li>
+                <li>Job boards and aggregators</li>
+                <li>Social media platforms (LinkedIn, Twitter)</li>
+                <li>Professional associations</li>
+                <li>University partnerships</li>
+                <li>Recruitment agencies and headhunters</li>
+                <li>Industry events and career fairs</li>
+            </ul>
+        </div>
+        
+        <div class="concept">
+            <h3>Candidate Screening & Interviewing Techniques</h3>
+            <p><strong>Screening</strong>: The initial evaluation process to filter applications based on minimum qualifications, often using resume reviews, phone screenings, or skills assessments.</p>
+            <p><strong>Interviewing Techniques</strong>: Methods to evaluate candidate fit, including:</p>
+            <ul>
+                <li><strong>Structured interviews</strong>: Same questions for all candidates to ensure fair comparison</li>
+                <li><strong>Behavioral interviews</strong>: Questions focused on past experiences ("Tell me about a time when...")</li>
+                <li><strong>Situational interviews</strong>: Hypothetical job-related scenarios</li>
+                <li><strong>Technical interviews</strong>: Skill demonstrations or problem-solving exercises</li>
+                <li><strong>Panel interviews</strong>: Multiple interviewers assess the candidate simultaneously</li>
+                <li><strong>Case interviews</strong>: Candidates analyze and solve business problems</li>
+            </ul>
+        </div>
+        
+        <div class="concept">
+            <h3>Employer Branding & Candidate Experience</h3>
+            <p><strong>Employer Branding</strong>: How an organization markets itself as an employer of choice, communicating its values, culture, and employee value proposition to attract talent.</p>
+            <p><strong>Candidate Experience</strong>: The collective impression candidates form throughout the recruitment process, from job discovery through application, interviews, and final decision. Positive experiences enhance the employer brand and increase offer acceptance rates.</p>
+            <p>Elements of positive candidate experience include:</p>
+            <ul>
+                <li>Clear communication throughout the process</li>
+                <li>Respectful and timely interactions</li>
+                <li>Transparent information about the role and company</li>
+                <li>Streamlined application process</li>
+                <li>Consistent follow-up and feedback</li>
+                <li>Professional interview experiences</li>
+            </ul>
+        </div>
+        
+        <div class="concept">
+            <h3>Diversity, Equity, and Inclusion (DEI) in Hiring</h3>
+            <p>Practices that ensure fair recruitment processes and build diverse workforces:</p>
+            <ul>
+                <li>Inclusive job descriptions without biased language</li>
+                <li>Diverse sourcing channels</li>
+                <li>Blind resume screening</li>
+                <li>Structured interviews with standardized evaluation criteria</li>
+                <li>Diverse interview panels</li>
+                <li>Clear, objective selection criteria</li>
+                <li>Regular bias training for hiring teams</li>
+                <li>Analyzing diversity metrics throughout the hiring funnel</li>
+            </ul>
+        </div>
+        
+        <div class="concept">
+            <h3>Recruitment Metrics & Analytics</h3>
+            <p>Key performance indicators used to evaluate recruitment effectiveness:</p>
+            <ul>
+                <li><strong>Time-to-fill</strong>: Average days to fill a position</li>
+                <li><strong>Cost-per-hire</strong>: Total recruitment expenses divided by number of hires</li>
+                <li><strong>Quality of hire</strong>: Performance ratings of new employees</li>
+                <li><strong>Source effectiveness</strong>: Which channels yield the best candidates</li>
+                <li><strong>Candidate satisfaction</strong>: Feedback on the recruitment process</li>
+                <li><strong>Offer acceptance rate</strong>: Percentage of candidates who accept job offers</li>
+                <li><strong>Diversity metrics</strong>: Representation throughout the hiring funnel</li>
+            </ul>
+            <p>These metrics help identify bottlenecks, optimize processes, and demonstrate recruitment ROI.</p>
+        </div>
+    </section>
+    
+    <section id="quiz" class="quiz-section">
+        <h2>Talent Acquisition & Recruitment Quiz</h2>
+        
+        <div class="question">
+            <h4>1. Which of the following is NOT typically part of workforce planning?</h4>
+            <div class="options">
+                <p><input type="radio" name="q1" id="q1a"> a) Analyzing current workforce capabilities</p>
+                <p><input type="radio" name="q1" id="q1b"> b) Forecasting future talent needs</p>
+                <p><input type="radio" name="q1" id="q1c"> c) Conducting performance reviews</p>
+                <p><input type="radio" name="q1" id="q1d"> d) Identifying skill gaps</p>
+            </div>
+        </div>
+        
+        <div class="question">
+            <h4>2. Job analysis primarily focuses on:</h4>
+            <div class="options">
+                <p><input type="radio" name="q2" id="q2a"> a) Evaluating employee performance</p>
+                <p><input type="radio" name="q2" id="q2b"> b) Determining compensation levels</p>
+                <p><input type="radio" name="q2" id="q2c"> c) Identifying the tasks, duties, and requirements of a position</p>
+                <p><input type="radio" name="q2" id="q2d"> d) Creating training programs</p>
+            </div>
+        </div>
+        
+        <div class="question">
+            <h4>3. Which element is most critical to include in a job description to comply with legal requirements?</h4>
+            <div class="options">
+                <p><input type="radio" name="q3" id="q3a"> a) Company culture information</p>
+                <p><input type="radio" name="q3" id="q3b"> b) Essential job functions and responsibilities</p>
+                <p><input type="radio" name="q3" id="q3c"> c) Career advancement opportunities</p>
+                <p><input type="radio" name="q3" id="q3d"> d) List of company benefits</p>
+            </div>
+        </div>
+        
+        <div class="question">
+            <h4>4. What is a key advantage of internal recruitment?</h4>
+            <div class="options">
+                <p><input type="radio" name="q4" id="q4a"> a) Reduces time-to-hire metrics</p>
+                <p><input type="radio" name="q4" id="q4b"> b) Brings fresh perspectives to the organization</p>
+                <p><input type="radio" name="q4" id="q4c"> c) Creates more diverse candidate pools</p>
+                <p><input type="radio" name="q4" id="q4d"> d) Requires less orientation and training</p>
+            </div>
+        </div>
+        
+        <div class="question">
+            <h4>5. Which of the following is an example of an external recruitment source?</h4>
+            <div class="options">
+                <p><input type="radio" name="q5" id="q5a"> a) Promotion opportunities</p>
+                <p><input type="radio" name="q5" id="q5b"> b) Employee referral programs</p>
+                <p><input type="radio" name="q5" id="q5c"> c) University job fairs</p>
+                <p><input type="radio" name="q5" id="q5d"> d) Succession planning</p>
+            </div>
+        </div>
+        
+        <div class="question">
+            <h4>6. What is the primary purpose of a behavioral interview question?</h4>
+            <div class="options">
+                <p><input type="radio" name="q6" id="q6a"> a) To assess a candidate's technical skills</p>
+                <p><input type="radio" name="q6" id="q6b"> b) To predict future behavior based on past performance</p>
+                <p><input type="radio" name="q6" id="q6c"> c) To evaluate a candidate's educational background</p>
+                <p><input type="radio" name="q6" id="q6d"> d) To determine salary expectations</p>
+            </div>
+        </div>
+        
+        <div class="question">
+            <h4>7. Which of the following best defines "employer branding"?</h4>
+            <div class="options">
+                <p><input type="radio" name="q7" id="q7a"> a) The organization's reputation as an employer and its value proposition to employees</p>
+                <p><input type="radio" name="q7" id="q7b"> b) The visual design elements used in recruitment materials</p>
+                <p><input type="radio" name="q7" id="q7c"> c) The company's marketing strategy to attract customers</p>
+                <p><input type="radio" name="q7" id="q7d"> d) The business's product positioning in the marketplace</p>
+            </div>
+        </div>
+        
+        <div class="question">
+            <h4>8. A positive candidate experience is important because:</h4>
+            <div class="options">
+                <p><input type="radio" name="q8" id="q8a"> a) It reduces the cost of recruitment advertising</p>
+                <p><input type="radio" name="q8" id="q8b"> b) It influences whether qualified candidates accept offers and how they view the organization</p>
+                <p><input type="radio" name="q8" id="q8c"> c) It eliminates the need for background checks</p>
+                <p><input type="radio" name="q8" id="q8d"> d) It increases employee retention rates immediately</p>
+            </div>
+        </div>
+        
+        <div class="question">
+            <h4>9. Which of the following is NOT a recommended practice for promoting diversity in hiring?</h4>
+            <div class="options">
+                <p><input type="radio" name="q9" id="q9a"> a) Using blind resume screening</p>
+                <p><input type="radio" name="q9" id="q9b"> b) Creating standardized interview questions</p>
+                <p><input type="radio" name="q9" id="q9c"> c) Relying primarily on employee referrals</p>
+                <p><input type="radio" name="q9" id="q9d"> d) Posting job openings on diverse job boards</p>
+            </div>
+        </div>
+        
+        <div class="question">
+            <h4>10. Which recruitment metric best measures the efficiency of the recruitment process?</h4>
+            <div class="options">
+                <p><input type="radio" name="q10" id="q10a"> a) Cost per hire</p>
+                <p><input type="radio" name="q10" id="q10b"> b) Time to fill</p>
+                <p><input type="radio" name="q10" id="q10c"> c) Candidate satisfaction</p>
+                <p><input type="radio" name="q10" id="q10d"> d) Quality of hire</p>
+            </div>
+        </div>
+        
+        <h3>Short Answer Questions</h3>
+        
+        <div class="question">
+            <h4>11. Explain the difference between job descriptions and job specifications, and why both are important in the recruitment process.</h4>
+            <textarea rows="4" style="width: 100%"></textarea>
+        </div>
+        
+        <div class="question">
+            <h4>12. Describe three effective sourcing strategies for hard-to-fill technical positions.</h4>
+            <textarea rows="4" style="width: 100%"></textarea>
+        </div>
+        
+        <div class="question">
+            <h4>13. What are the potential biases that can occur during resume screening, and how can recruiters mitigate them?</h4>
+            <textarea rows="4" style="width: 100%"></textarea>
+        </div>
+        
+        <div class="question">
+            <h4>14. Explain how the candidate experience can impact an organization's employer brand.</h4>
+            <textarea rows="4" style="width: 100%"></textarea>
+        </div>
+        
+        <div class="question">
+            <h4>15. Identify three key recruitment metrics and explain how they can be used to improve the hiring process.</h4>
+            <textarea rows="4" style="width: 100%"></textarea>
+        </div>
+        
+        <h3>Essay Question</h3>
+        
+        <div class="question">
+            <h4>16. Discuss how organizations can integrate Diversity, Equity, and Inclusion (DEI) principles throughout the entire recruitment process, from job posting to final selection. Include specific strategies and potential challenges.</h4>
+            <textarea rows="8" style="width: 100%"></textarea>
+        </div>
+        
+        <button id="showAnswers">Show Answer Key</button>
+        
+        <div class="answer-key" id="answerKey">
+            <h3>Answer Key - Multiple Choice</h3>
+            <ol>
+                <li>c) Conducting performance reviews</li>
+                <li>c) Identifying the tasks, duties, and requirements of a position</li>
+                <li>b) Essential job functions and responsibilities</li>
+                <li>d) Requires less orientation and training</li>
+                <li>c) University job fairs</li>
+                <li>b) To predict future behavior based on past performance</li>
+                <li>a) The organization's reputation as an employer and its value proposition to employees</li>
+                <li>b) It influences whether qualified candidates accept offers and how they view the organization</li>
+                <li>c) Relying primarily on employee referrals</li>
+                <li>b) Time to fill</li>
+            </ol>
+            
+            <h3>Short Answer Guidelines</h3>
+            
+            <h4>Question 11:</h4>
+            <p>Job descriptions focus on duties, responsibilities, and tasks of a position, while job specifications outline the qualifications, skills, and experience required. Both are important because descriptions clarify role expectations while specifications help identify qualified candidates. Together they form the basis for recruitment, legal compliance, and performance management.</p>
+            
+            <h4>Question 12:</h4>
+            <p>Effective strategies include:
+            <ul>
+                <li>Partnering with specialized technical recruiters</li>
+                <li>Utilizing technical communities and forums (Stack Overflow, GitHub)</li>
+                <li>Implementing employee referral programs with technical incentives</li>
+                <li>Engaging with university research departments</li>
+                <li>Hosting hackathons or technical challenges to identify talent</li>
+            </ul>
+            </p>
+            
+            <h4>Question 13:</h4>
+            <p>Common biases include name bias, education bias, affinity bias, and assumption bias based on employment gaps. Mitigations include implementing blind resume screening, using standardized evaluation criteria, training screeners on bias awareness, using diverse screening panels, and employing AI tools with anti-bias algorithms.</p>
+            
+            <h4>Question 14:</h4>
+            <p>Candidate experience impacts employer brand by:
+            <ul>
+                <li>Creating brand ambassadors even among rejected candidates</li>
+                <li>Influencing online reviews on platforms like Glassdoor</li>
+                <li>Affecting referrals from candidates' networks</li>
+                <li>Shaping public perception of organizational values and culture</li>
+                <li>Determining whether qualified candidates complete the process and accept offers</li>
+            </ul>
+            </p>
+            
+            <h4>Question 15:</h4>
+            <p>Key metrics include:
+            <ul>
+                <li>Time-to-fill: Helps identify bottlenecks in the recruitment process</li>
+                <li>Quality of hire: Measures performance ratings, retention rates, and hiring manager satisfaction</li>
+                <li>Source effectiveness: Tracks which channels yield the best candidates</li>
+                <li>Cost-per-hire: Evaluates recruitment ROI</li>
+                <li>Candidate diversity metrics: Monitors representation throughout the hiring funnel</li>
+            </ul>
+            </p>
+            
+            <h4>Essay Question 16:</h4>
+            <p>A comprehensive response should address DEI integration at each stage:
+            <ul>
+                <li>Job posting (inclusive language, showcasing commitment to DEI)</li>
+                <li>Sourcing (diverse channels, partnerships with organizations serving underrepresented groups)</li>
+                <li>Screening (bias mitigation techniques, diverse requirements)</li>
+                <li>Interviewing (diverse panels, standardized questions, cultural add vs. cultural fit)</li>
+                <li>Selection (clear criteria, accountability for diversity goals)</li>
+                <li>Challenges (pipeline issues, unconscious bias, resistance to change)</li>
+                <li>Measurement (tracking diversity metrics throughout the process)</li>
+            </ul>
+            </p>
+        </div>
+    </section>
+    
+    <section id="case-study" class="case-study">
+        <h2>Case Study: RevTech Solutions Recruitment Challenge</h2>
+        
+        <h3>Scenario:</h3>
+        <p>RevTech Solutions, a growing technology company with 150 employees, is planning to expand its operations by opening a new division focused on artificial intelligence applications. They need to hire 15 new team members within the next three months, including:</p>
+        <ul>
+            <li>1 AI Division Director</li>
+            <li>3 Senior AI Engineers</li>
+            <li>6 AI Developers</li>
+            <li>2 UI/UX Designers with AI experience</li>
+            <li>2 Project Managers</li>
+            <li>1 Technical Writer</li>
+        </ul>
+        
+        <p>The company has struggled with recruitment in the past, facing challenges such as:</p>
+        <ul>
+            <li>Long time-to-fill positions (averaging 65 days)</li>
+            <li>High candidate drop-off rates during the interview process</li>
+            <li>Difficulty attracting diverse candidates (currently only 22% women and 15% underrepresented minorities in technical roles)</li>
+            <li>Limited success with previous recruiting methods</li>
+            <li>Budget constraints for recruitment (maximum $8,000 per hire)</li>
+        </ul>
+        
+        <h3>Case Questions:</h3>
+        
+        <div class="question">
+            <h4>1. Develop a comprehensive recruitment strategy for RevTech Solutions that addresses their specific challenges. Include workforce planning considerations, sourcing strategies, and screening approaches.</h4>
+            <textarea rows="8" style="width: 100%"></textarea>
+        </div>
+        
+        <div class="question">
+            <h4>2. Create an outline for the AI Developer job description that would attract qualified and diverse candidates.</h4>
+            <textarea rows="8" style="width: 100%"></textarea>
+        </div>
+        
+        <div class="question">
+            <h4>3. Design an interview process that would effectively evaluate candidates while improving the candidate experience.</h4>
+            <textarea rows="8" style="width: 100%"></textarea>
+        </div>
+        
+        <div class="question">
+            <h4>4. Recommend 3-5 specific recruitment metrics RevTech should track to measure the success of this hiring initiative.</h4>
+            <textarea rows="6" style="width: 100%"></textarea>
+        </div>
+        
+        <div class="question">
+            <h4>5. Propose strategies to enhance diversity in the candidate pool while meeting the tight hiring timeline.</h4>
+            <textarea rows="8" style="width: 100%"></textarea>
+        </div>
+        
+        <h3>Evaluation Criteria:</h3>
+        <ul>
+            <li>Practical application of recruitment concepts</li>
+            <li>Strategic thinking and problem-solving</li>
+            <li>Consideration of both business needs and candidate experience</li>
+            <li>Integration of DEI principles</li>
+            <li>Attention to recruitment metrics and ROI</li>
+            <li>Feasibility of implementation</li>
+        </ul>
+    </section>
+    
+    <footer>
+        <p>© 2025 Human Resources Management Program | Module 2: Talent Acquisition & Recruitment</p>
+    </footer>
+    
+    <script>
+        document.getElementById('showAnswers').addEventListener('click', function() {
+            const answerKey = document.getElementById('answerKey');
+            if (answerKey.style.display === 'block') {
+                answerKey.style.display = 'none';
+                this.textContent = 'Show Answer Key';
+            } else {
+                answerKey.style.display = 'block';
+                this.textContent = 'Hide Answer Key';
+            }
+        });
+    </script>
+</body>
+</html>

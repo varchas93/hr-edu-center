@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive HRM Learning Module</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #4361ee;
+            --secondary: #3f37c9;
+            --accent: #f72585;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --success: #4cc9f0;
+            --warning: #f8961e;
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        body {
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: #f5f7fa;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: "";
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 200px;
+            height: 200px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        nav {
+            background: white;
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+        
+        nav ul li {
+            margin: 0 15px;
+            position: relative;
+        }
+        
+        nav a {
+            color: var(--dark);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 8px 12px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+        }
+        
+        nav a:hover {
+            color: var(--primary);
+            transform: translateY(-2px);
+        }
+        
+        nav a i {
+            margin-right: 8px;
+            font-size: 0.9rem;
+        }
+        
+        section {
+            padding: 3rem 0;
+            border-bottom: 1px solid #e9ecef;
+        }
+        
+        h1, h2, h3, h4 {
+            margin-bottom: 1.5rem;
+            color: var(--dark);
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+        }
+        
+        h2 {
+            font-size: 2rem;
+            border-bottom: 3px solid var(--primary);
+            padding-bottom: 0.5rem;
+            display: inline-block;
+            margin-bottom: 2rem;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.05);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-left: 4px solid var(--primary);
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 20px rgba(0,0,0,0.1);
+        }
+        
+        .card h3 {
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+        }
+        
+        .card h3 i {
+            margin-right: 10px;
+            font-size: 1.2rem;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #e9ecef;
+        }
+        
+        th {
+            background-color: var(--primary);
+            color: white;
+            font-weight: 500;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        
+        tr:hover {
+            background-color: #f1f3f5;
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--primary);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            margin: 0.5rem 0;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .btn i {
+            margin-right: 8px;
+        }
+        
+        .btn:hover {
+            background: var(--secondary);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+        
+        .btn-accent {
+            background: var(--accent);
+        }
+        
+        .btn-accent:hover {
+            background: #d91a6b;
+        }
+        
+        .quiz-option {
+            display: block;
+            margin: 0.8rem 0;
+            padding: 1rem;
+            background: #f8f9fa;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 400;
+        }
+        
+        .quiz-option:hover {
+            background: #e9ecef;
+            border-color: var(--primary);
+        }
+        
+        .quiz-option.selected {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+        
+        .quiz-option.correct {
+            background: var(--success);
+            color: white;
+            border-color: var(--success);
+        }
+        
+        .quiz-option.incorrect {
+            background: var(--accent);
+            color: white;
+            border-color: var(--accent);
+        }
+        
+        .hidden {
+            display: none;
+        }
+        
+        .case-study {
+            background: #f8f9fa;
+            border-left: 4px solid var(--primary);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .case-study-question {
+            font-weight: 600;
+            margin: 1.5rem 0 0.8rem;
+            color: var(--dark);
+            display: flex;
+            align-items: center;
+        }
+        
+        .case-study-question i {
+            color: var(--primary);
+            margin-right: 10px;
+            font-size: 1.1rem;
+        }
+        
+        footer {
+            background: linear-gradient(135deg, var(--dark), #343a40);
+            color: white;
+            text-align: center;
+            padding: 3rem 0;
+            margin-top: 3rem;
+        }
+        
+        .progress-container {
+            width: 100%;
+            background-color: #e9ecef;
+            border-radius: 50px;
+            margin: 1.5rem 0;
+        }
+        
+        .progress-bar {
+            height: 10px;
+            background-color: var(--primary);
+            border-radius: 50px;
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+        
+        .timeline {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 1.5rem 0;
+        }
+        
+        .timeline-item {
+            flex: 1;
+            min-width: 250px;
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+            position: relative;
+            padding-left: 3rem;
+        }
+        
+        .timeline-item::before {
+            content: "";
+            position: absolute;
+            left: 1rem;
+            top: 2rem;
+            width: 20px;
+            height: 20px;
+            background: var(--primary);
+            border-radius: 50%;
+        }
+        
+        .timeline-item h4 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+        
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav ul li {
+                margin: 5px 0;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            h2 {
+                font-size: 1.5rem;
+            }
+            
+            .timeline-item {
+                min-width: 100%;
+            }
+        }
+        
+        /* Animation */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .animated {
+            animation: fadeIn 0.6s ease-out forwards;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><i class="fas fa-users-cog"></i> Human Resources Management</h1>
+            <p>Module 1: Introduction to HRM</p>
+            <div class="progress-container">
+                <div class="progress-bar" id="progress-bar"></div>
+            </div>
+        </div>
+    </header>
+    
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="#overview"><i class="fas fa-binoculars"></i> Overview</a></li>
+                <li><a href="#functions"><i class="fas fa-cogs"></i> HR Functions</a></li>
+                <li><a href="#ethics"><i class="fas fa-scale-balanced"></i> Ethics</a></li>
+                <li><a href="#compliance"><i class="fas fa-gavel"></i> Compliance</a></li>
+                <li><a href="#quiz"><i class="fas fa-question-circle"></i> Quiz</a></li>
+                <li><a href="#case-study"><i class="fas fa-briefcase"></i> Case Study</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <section id="overview">
+            <h2><i class="fas fa-binoculars"></i> Definition and Evolution of HRM</h2>
+            <div class="card animated">
+                <h3><i class="fas fa-book-open"></i> Definition</h3>
+                <p>HRM is the strategic approach to managing an organization's workforce to maximize performance, ensure compliance, and foster a positive work environment.</p>
+                
+                <h3><i class="fas fa-history"></i> Evolution of HRM</h3>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <h4>Personnel Management</h4>
+                        <p><em>Early 20th Century</em></p>
+                        <p>Focused on administrative tasks (payroll, hiring, firing).</p>
+                        <p><i class="fas fa-lightbulb" style="color: var(--warning);"></i> <em>Example:</em> Factory supervisors handling worker attendance manually.</p>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <h4>Human Relations</h4>
+                        <p><em>1930s-1950s</em></p>
+                        <p>Emphasized employee satisfaction and motivation.</p>
+                        <p><i class="fas fa-lightbulb" style="color: var(--warning);"></i> <em>Example:</em> Hawthorne Studies on productivity.</p>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <h4>Strategic HRM</h4>
+                        <p><em>1980s-Present</em></p>
+                        <p>HR aligns with business goals and analytics.</p>
+                        <p><i class="fas fa-lightbulb" style="color: var(--warning);"></i> <em>Example:</em> Google's People Analytics.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="functions">
+            <h2><i class="fas fa-cogs"></i> Key Functions of HR</h2>
+            <div class="card animated">
+                <h3><i class="fas fa-tasks"></i> Administrative HR Functions</h3>
+                <p><strong>Transactional tasks:</strong> Payroll, record-keeping, compliance.</p>
+                <p><i class="fas fa-lightbulb" style="color: var(--warning);"></i> <em>Example:</em> An HR assistant processing employee tax forms.</p>
+                
+                <h3><i class="fas fa-chess"></i> Strategic HR Functions</h3>
+                <ul style="list-style-type: none;">
+                    <li style="margin-bottom: 1rem;"><i class="fas fa-user-plus" style="color: var(--primary); width: 20px;"></i> <strong>Talent Acquisition & Retention:</strong> Hiring top talent, reducing turnover.</li>
+                    <li style="margin-bottom: 1rem;"><i class="fas fa-chart-line" style="color: var(--primary); width: 20px;"></i> <strong>Performance Management:</strong> Continuous feedback (e.g., Adobe's "Check-In" system).</li>
+                    <li style="margin-bottom: 1rem;"><i class="fas fa-graduation-cap" style="color: var(--primary); width: 20px;"></i> <strong>Learning & Development:</strong> Upskilling employees (e.g., Amazon's $700M reskilling program).</li>
+                </ul>
+                
+                <h3><i class="fas fa-balance-scale"></i> Comparison</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Administrative HR</th>
+                            <th>Strategic HR</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Reactive (fixing issues)</td>
+                            <td>Proactive (planning ahead)</td>
+                        </tr>
+                        <tr>
+                            <td>Short-term focus</td>
+                            <td>Long-term business impact</td>
+                        </tr>
+                        <tr>
+                            <td>Paperwork & compliance</td>
+                            <td>Leadership & culture shaping</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+        
+        <section id="ethics">
+            <h2><i class="fas fa-scale-balanced"></i> HR Ethics and Professional Standards</h2>
+            <div class="card animated">
+                <h3><i class="fas fa-hand-holding-heart"></i> Key HR Ethics Principles</h3>
+                <ul style="list-style-type: none;">
+                    <li style="margin-bottom: 1rem;"><i class="fas fa-lock" style="color: var(--primary); width: 20px;"></i> <strong>Confidentiality:</strong> Protecting employee data (e.g., GDPR compliance).</li>
+                    <li style="margin-bottom: 1rem;"><i class="fas fa-scale-balanced" style="color: var(--primary); width: 20px;"></i> <strong>Fairness:</strong> Avoiding bias in hiring (e.g., blind recruitment at Deloitte).</li>
+                    <li style="margin-bottom: 1rem;"><i class="fas fa-user-shield" style="color: var(--primary); width: 20px;"></i> <strong>Integrity:</strong> No favoritism in promotions.</li>
+                </ul>
+                
+                <h3><i class="fas fa-certificate"></i> Professional Bodies & Certifications</h3>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <h4>SHRM</h4>
+                        <p>Society for HR Management</p>
+                        <p>Offers SHRM-CP/SHRM-SCP certifications</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h4>CIPD</h4>
+                        <p>Chartered Institute of Personnel & Development</p>
+                        <p>UK-based HR standards</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h4>HRCI</h4>
+                        <p>HR Certification Institute</p>
+                        <p>Offers PHR, SPHR certifications</p>
+                    </div>
+                </div>
+                
+                <div class="case-study">
+                    <h4><i class="fas fa-question"></i> Ethical Dilemma Example</h4>
+                    <p><strong>Scenario:</strong> An HR manager discovers a top-performing employee lied on their resume.</p>
+                    <p><strong>Ethical Action:</strong> Follow company policy (investigate, possibly terminate) while ensuring fairness.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="compliance">
+            <h2><i class="fas fa-gavel"></i> HR Compliance and Legal Framework</h2>
+            <div class="card animated">
+                <h3><i class="fas fa-book-law"></i> Key Employment Laws</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Law</th>
+                            <th>Purpose</th>
+                            <th>Example Violation</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>FLSA</strong></td>
+                            <td>Minimum wage, overtime</td>
+                            <td>Misclassifying employees as exempt</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Title VII</strong></td>
+                            <td>Prevents discrimination</td>
+                            <td>Rejecting a candidate based on race</td>
+                        </tr>
+                        <tr>
+                            <td><strong>FMLA</strong></td>
+                            <td>Unpaid leave for emergencies</td>
+                            <td>Denying leave to an employee</td>
+                        </tr>
+                        <tr>
+                            <td><strong>ADA</strong></td>
+                            <td>Workplace accommodations</td>
+                            <td>Refusing wheelchair ramp</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <h3><i class="fas fa-landmark"></i> Global Labor Standards</h3>
+                <ul style="list-style-type: none;">
+                    <li style="margin-bottom: 1rem;"><i class="fas fa-globe" style="color: var(--primary); width: 20px;"></i> <strong>ILO:</strong> International Labour Organization standards (no child labor)</li>
+                    <li style="margin-bottom: 1rem;"><i class="fas fa-industry" style="color: var(--primary); width: 20px;"></i> <strong>Example:</strong> Nike's sweatshop reforms in the 1990s</li>
+                </ul>
+            </div>
+        </section>
+        
+        <section id="quiz">
+            <h2><i class="fas fa-question-circle"></i> HRM Concepts Quiz</h2>
+            <div class="card animated">
+                <p><strong>Test your knowledge with this 5-question quiz:</strong></p>
+                
+                <div id="quiz-container">
+                    <div class="quiz-question">
+                        <h3>1. Which best defines HRM?</h3>
+                        <div class="quiz-option" data-correct="c">a) Managing financial investments</div>
+                        <div class="quiz-option">b) Handling administrative tasks only</div>
+                        <div class="quiz-option">c) Strategically managing people to achieve goals</div>
+                        <div class="quiz-option">d) Overseeing IT infrastructure</div>
+                    </div>
+                    
+                    <div class="quiz-question">
+                        <h3>2. The Hawthorne Studies highlighted:</h3>
+                        <div class="quiz-option">a) Payroll automation</div>
+                        <div class="quiz-option" data-correct="b">b) Employee satisfaction impacts productivity</div>
+                        <div class="quiz-option">c) Strict labor laws</div>
+                        <div class="quiz-option">d) Eliminating HR departments</div>
+                    </div>
+                    
+                    <div class="quiz-question">
+                        <h3>3. Which is a strategic HR function?</h3>
+                        <div class="quiz-option">a) Processing payroll</div>
+                        <div class="quiz-option" data-correct="b">b) Employee engagement surveys</div>
+                        <div class="quiz-option">c) Filing tax forms</div>
+                        <div class="quiz-option">d) Updating attendance</div>
+                    </div>
+                    
+                    <div class="quiz-question">
+                        <h3>4. Which body offers SHRM-CP?</h3>
+                        <div class="quiz-option">a) CIPD</div>
+                        <div class="quiz-option">b) HRCI</div>
+                        <div class="quiz-option" data-correct="c">c) SHRM</div>
+                        <div class="quiz-option">d) ILO</div>
+                    </div>
+                    
+                    <div class="quiz-question">
+                        <h3>5. How should HR handle a resume lie?</h3>
+                        <div class="quiz-option">a) Ignore if performance is good</div>
+                        <div class="quiz-option">b) Terminate immediately</div>
+                        <div class="quiz-option" data-correct="c">c) Investigate per policy</div>
+                        <div class="quiz-option">d) Demote confidentially</div>
+                    </div>
+                    
+                    <button id="submit-quiz" class="btn"><i class="fas fa-paper-plane"></i> Submit Quiz</button>
+                    <div id="quiz-results" class="hidden">
+                        <h3>Your Score: <span id="score">0</span>/5</h3>
+                        <p id="feedback"></p>
+                        <button id="retry-quiz" class="btn-accent"><i class="fas fa-redo"></i> Try Again</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="case-study">
+            <h2><i class="fas fa-briefcase"></i> Case Study: TechNova Hiring Dilemma</h2>
+            <div class="card animated">
+                <h3><i class="fas fa-building"></i> Background</h3>
+                <p>TechNova Inc. needs to hire a <strong>Chief Data Officer (CDO)</strong> within two weeks. Two candidates emerge:</p>
+                
+                <div style="display: flex; flex-wrap: wrap; gap: 20px; margin: 1.5rem 0;">
+                    <div style="flex: 1; min-width: 300px; background: #f1f8ff; padding: 1.5rem; border-radius: 8px;">
+                        <h4 style="color: var(--accent);"><i class="fas fa-user-tie"></i> Alex</h4>
+                        <ul style="list-style-type: none;">
+                            <li><i class="fas fa-check-circle" style="color: var(--success);"></i> 10+ years at Google/IBM</li>
+                            <li><i class="fas fa-check-circle" style="color: var(--success);"></i> Strong technical skills</li>
+                            <li><i class="fas fa-exclamation-triangle" style="color: var(--warning);"></i> Bullying rumors (unverified)</li>
+                        </ul>
+                    </div>
+                    
+                    <div style="flex: 1; min-width: 300px; background: #f1f8ff; padding: 1.5rem; border-radius: 8px;">
+                        <h4 style="color: var(--success);"><i class="fas fa-user-graduate"></i> Jordan</h4>
+                        <ul style="list-style-type: none;">
+                            <li><i class="fas fa-check-circle" style="color: var(--success);"></i> SHRM-certified leader</li>
+                            <li><i class="fas fa-check-circle" style="color: var(--success);"></i> Excellent culture fit</li>
+                            <li><i class="fas fa-exclamation-triangle" style="color: var(--warning);"></i> Less AI experience</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <h3><i class="fas fa-users-between-lines"></i> Stakeholder Views</h3>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <h4><i class="fas fa-crown"></i> CEO</h4>
+                        <p>"We need Alex—his big-name experience will impress clients!"</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h4><i class="fas fa-users"></i> Team</h4>
+                        <p>"We prefer Jordan for better culture fit"</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h4><i class="fas fa-balance-scale"></i> Legal</h4>
+                        <p>"No formal complaints against Alex"</p>
+                    </div>
+                </div>
+                
+                <div class="case-study">
+                    <h3><i class="fas fa-question"></i> Discussion Questions</h3>
+                    <div class="case-study-question">
+                        <i class="fas fa-1"></i> Should HR hire Alex despite bullying concerns?
+                    </div>
+                    <div class="case-study-question">
+                        <i class="fas fa-2"></i> Could TechNova face legal liability?
+                    </div>
+                    <div class="case-study-question">
+                        <i class="fas fa-3"></i> Is prioritizing CEO's request over culture strategic?
+                    </div>
+                    <div class="case-study-question">
+                        <i class="fas fa-4"></i> Does ignoring references violate SHRM ethics?
+                    </div>
+                    <div class="case-study-question">
+                        <i class="fas fa-5"></i> Would a probation period mitigate risks?
+                    </div>
+                    
+                    <h3 style="margin-top: 2rem;"><i class="fas fa-lightbulb"></i> Your Analysis</h3>
+                    <textarea id="case-study-response" rows="5" style="width: 100%; padding: 15px; border: 2px solid #e9ecef; border-radius: 8px; margin: 1rem 0;" placeholder="What would you do as HR Director?"></textarea>
+                    <button class="btn"><i class="fas fa-paper-plane"></i> Submit Response</button>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <p><i class="fas fa-copyright"></i> HRM Learning Module 2023 | Interactive Training System</p>
+            <div style="margin-top: 1rem;">
+                <a href="#" style="color: white; margin: 0 10px; font-size: 1.2rem;"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" style="color: white; margin: 0 10px; font-size: 1.2rem;"><i class="fab fa-twitter"></i></a>
+                <a href="#" style="color: white; margin: 0 10px; font-size: 1.2rem;"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Scroll progress bar
+        window.addEventListener('scroll', function() {
+            const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+            const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrollProgress = (scrollTop / scrollHeight) * 100;
+            document.getElementById('progress-bar').style.width = scrollProgress + '%';
+        });
+        
+        // Quiz functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const quizOptions = document.querySelectorAll('.quiz-option');
+            const submitBtn = document.getElementById('submit-quiz');
+            const retryBtn = document.getElementById('retry-quiz');
+            const quizResults = document.getElementById('quiz-results');
+            const scoreDisplay = document.getElementById('score');
+            const feedbackDisplay = document.getElementById('feedback');
+            
+            // Handle quiz option selection
+            quizOptions.forEach(option => {
+                option.addEventListener('click', function() {
+                    // Remove selected class from siblings
+                    const siblings = this.parentNode.querySelectorAll('.quiz-option');
+                    siblings.forEach(sib => {
+                        sib.classList.remove('selected');
+                        sib.classList.remove('correct', 'incorrect');
+                    });
+                    
+                    // Add selected class to clicked option
+                    this.classList.add('selected');
+                });
+            });
+            
+            // Handle quiz submission
+            submitBtn.addEventListener('click', function() {
+                let score = 0;
+                let totalQuestions = document.querySelectorAll('.quiz-question').length;
+                
+                // Check each question
+                document.querySelectorAll('.quiz-question').forEach(question => {
+                    const selectedOption = question.querySelector('.quiz-option.selected');
+                    const correctOption = question.querySelector('.quiz-option[data-correct]');
+                    
+                    if (selectedOption) {
+                        if (selectedOption === correctOption) {
+                            score++;
+                            selectedOption.classList.add('correct');
+                        } else {
+                            selectedOption.classList.add('incorrect');
+                            correctOption.classList.add('correct');
+                        }
+                    }
+                });
+                
+                // Display results
+                scoreDisplay.textContent = score;
+                quizResults.classList.remove('hidden');
+                
+                // Provide feedback
+                if (score === totalQuestions) {
+                    feedbackDisplay.textContent = "🎉 Excellent! You've mastered these HRM concepts.";
+                } else if (score >= totalQuestions * 0.7) {
+                    feedbackDisplay.textContent = "👍 Good job! You understand most concepts but could review a few areas.";
+                } else {
+                    feedbackDisplay.textContent = "📚 Keep studying! Review the module materials and try again.";
+                }
+                
+                // Scroll to results
+                quizResults.scrollIntoView({ behavior: 'smooth' });
+            });
+            
+            // Handle quiz retry
+            if (retryBtn) {
+                retryBtn.addEventListener('click', function() {
+                    document.querySelectorAll('.quiz-option').forEach(option => {
+                        option.classList.remove('selected', 'correct', 'incorrect');
+                    });
+                    quizResults.classList.add('hidden');
+                    document.getElementById('quiz-container').scrollIntoView({ behavior: 'smooth' });
+                });
+            }
+            
+            // Smooth scrolling for navigation
+            document.querySelectorAll('nav a').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    if (targetElement) {
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+            
+            // Animate elements when they come into view
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animated');
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            document.querySelectorAll('.card, .case-study').forEach(el => {
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+</html>

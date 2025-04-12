@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HR Curriculum | Your Company Name</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2563eb;
+            --secondary: #1e40af;
+            --accent: #3b82f6;
+            --light: #f8fafc;
+            --dark: #1e293b;
+            --gray: #64748b;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: #f1f5f9;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: "";
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 200px;
+            height: 200px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+        }
+        
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            position: relative;
+        }
+        
+        header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .logo-grid {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 2rem 0;
+        }
+        
+        .logo-item {
+            background: white;
+            border-radius: 12px;
+            padding: 15px;
+            width: 100px;
+            height: 100px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .logo-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+        }
+        
+        .logo-item i {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+        
+        .logo-item span {
+            font-size: 0.8rem;
+            text-align: center;
+            font-weight: 500;
+        }
+        
+        .module {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border-left: 4px solid var(--primary);
+            transition: all 0.3s ease;
+        }
+        
+        .module:hover {
+            box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+            transform: translateY(-2px);
+        }
+        
+        h2 {
+            color: var(--secondary);
+            margin-top: 3rem;
+            font-size: 1.8rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        h2::after {
+            content: "";
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: var(--accent);
+            border-radius: 2px;
+        }
+        
+        h3 {
+            color: var(--primary);
+            margin-top: 0;
+            font-size: 1.4rem;
+        }
+        
+        .topics {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 10px;
+            margin-top: 15px;
+        }
+        
+        .topics li {
+            background: var(--light);
+            padding: 10px 15px;
+            border-radius: 8px;
+            margin-bottom: 8px;
+            list-style-type: none;
+            position: relative;
+            padding-left: 30px;
+        }
+        
+        .topics li::before {
+            content: "\f00c";
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            position: absolute;
+            left: 10px;
+            color: var(--primary);
+        }
+        
+        .resources {
+            background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
+            border-radius: 12px;
+            padding: 30px;
+            margin: 3rem 0;
+            border: 1px solid #bfdbfe;
+        }
+        
+        .resource-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .resource-card {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .resource-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+        }
+        
+        .resource-card h4 {
+            color: var(--secondary);
+            margin-top: 0;
+            display: flex;
+            align-items: center;
+        }
+        
+        .resource-card h4 i {
+            margin-right: 10px;
+            color: var(--primary);
+        }
+        
+        footer {
+            background: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+        
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--primary);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            cursor: pointer;
+            opacity: 0;
+            transition: all 0.3s ease;
+            z-index: 99;
+        }
+        
+        .back-to-top.visible {
+            opacity: 1;
+        }
+        
+        @media (max-width: 768px) {
+            .topics {
+                grid-template-columns: 1fr;
+            }
+            
+            header h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>HR Development Curriculum</h1>
+            <p>From Fundamentals to Strategic Leadership</p>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="logo-grid">
+            <div class="logo-item" onclick="scrollToModule('module1')">
+                <i class="fas fa-users"></i>
+                <span>HR Basics</span>
+            </div>
+            <div class="logo-item" onclick="scrollToModule('module2')">
+                <i class="fas fa-search"></i>
+                <span>Talent Acquisition</span>
+            </div>
+            <div class="logo-item" onclick="scrollToModule('module3')">
+                <i class="fas fa-user-plus"></i>
+                <span>Onboarding</span>
+            </div>
+            <div class="logo-item" onclick="scrollToModule('module4')">
+                <i class="fas fa-chart-line"></i>
+                <span>Performance</span>
+            </div>
+            <div class="logo-item" onclick="scrollToModule('module5')">
+                <i class="fas fa-graduation-cap"></i>
+                <span>Learning</span>
+            </div>
+            <div class="logo-item" onclick="scrollToModule('module6')">
+                <i class="fas fa-money-bill-wave"></i>
+                <span>Compensation</span>
+            </div>
+            <div class="logo-item" onclick="scrollToModule('module7')">
+                <i class="fas fa-handshake"></i>
+                <span>Relations</span>
+            </div>
+            <div class="logo-item" onclick="scrollToModule('module8')">
+                <i class="fas fa-chart-pie"></i>
+                <span>Analytics</span>
+            </div>
+        </div>
+
+        <h2>Comprehensive HR Curriculum</h2>
+        <p>This structured program takes learners from foundational HR principles to advanced strategic HR management.</p>
+
+        <div id="module1" class="module">
+            <h3><a href="hrm-module1-intro.html" title="Introduction to HRM" target="_blank">
+                HRM Module 1: Introduction to Human Resources Management
+              </a></h3>
+            <ul class="topics">
+                <li>Definition and Evolution of HRM</li>
+                <li>Key Functions of HR (Administrative vs. Strategic)</li>
+                <li>Role of HR in Organizational Success</li>
+                <li>HR Ethics and Professional Standards</li>
+                <li>HR Compliance and Legal Framework</li>
+            </ul>
+        </div>
+
+        <!-- Additional modules (2-10) follow same structure -->
+        <!-- Module 2 -->
+        <div id="module2" class="module">
+            <h3><a href="talent-acquisition-recruitment.html" target="_blank">Module 2: Talent Acquisition & Recruitment</a></h3>
+            <ul class="topics">
+                <li>Workforce Planning & Job Analysis</li>
+                <li>Writing Effective Job Descriptions</li>
+                <li>Sourcing Strategies</li>
+                <li>Candidate Screening Techniques</li>
+                <li>Employer Branding</li>
+                <li>Diversity, Equity, and Inclusion</li>
+                <li>Recruitment Metrics & Analytics</li>
+            </ul>
+        </div>
+
+        <div id="module3" class="module">
+            <h3><a href="module3.html">Module 3: Onboarding & Retention</a></h3>
+            <ul class="topics">
+                <li>Onboarding Best Practices (Pre-boarding to 90-Day Plan)</li>
+                <li>Employee Engagement Strategies</li>
+                <li>Retention Techniques & Turnover Analysis</li>
+                <li>Career Pathing & Succession Planning</li>
+                <li>Exit Interviews & Offboarding</li>
+            </ul>
+        </div>
+
+        <div id="module4" class="module">
+            <h3>Module 4: Performance Management</h3>
+            <ul class="topics">
+                <li>Setting SMART Goals & OKRs</li>
+                <li>Performance Appraisal Methods (360 Feedback, MBO, BARS)</li>
+                <li>Continuous Performance Management</li>
+                <li>Coaching & Feedback Techniques</li>
+                <li>Handling Poor Performance & PIPs (Performance Improvement Plans)</li>
+            </ul>
+        </div>
+
+        <div id="module5" class="module">
+            <h3>Module 5: Learning & Development (L&D)</h3>
+            <ul class="topics">
+                <li>Training Needs Analysis (TNA)</li>
+                <li>Designing Effective Training Programs</li>
+                <li>E-Learning & Digital Learning Platforms</li>
+                <li>Leadership Development & High-Potential (HiPo) Programs</li>
+                <li>Measuring Training ROI (Kirkpatrick Model)</li>
+            </ul>
+        </div>
+
+        <div id="module6" class="module">
+            <h3>Module 6: Compensation & Benefits</h3>
+            <ul class="topics">
+                <li>Job Evaluation & Salary Benchmarking</li>
+                <li>Pay Structures (Base Pay, Variable Pay, Bonuses)</li>
+                <li>Employee Benefits (Health, Retirement, Wellness Programs)</li>
+                <li>Equity Compensation (Stock Options, ESOPs)</li>
+                <li>Pay Transparency & Pay Equity</li>
+            </ul>
+        </div>
+
+        <div id="module7" class="module">
+            <h3>Module 7: Employee Relations & Workplace Culture</h3>
+            <ul class="topics">
+                <li>Conflict Resolution & Mediation</li>
+                <li>Handling Grievances & Disciplinary Actions</li>
+                <li>Workplace Policies (Remote Work, Code of Conduct)</li>
+                <li>Building a Positive Organizational Culture</li>
+                <li>HR’s Role in Change Management</li>
+            </ul>
+        </div>
+
+        <div id="module8" class="module">
+            <h3>Module 8: HR Analytics & Data-Driven Decision Making</h3>
+            <ul class="topics">
+                <li>HR Analytics & Data-Driven Decision Making</li>
+                <li>People Analytics Tools (Power BI, Tableau, HRIS)</li>
+                <li>Predictive Analytics in HR</li>
+                <li>Data Privacy & GDPR Compliance</li>
+            </ul>
+        </div>
+
+        <div id="module9" class="module">
+            <h3>Module 9: Strategic HR Management</h3>
+            <ul class="topics">
+                <li>Aligning HR Strategy with Business Goals</li>
+                <li>HR as a Business Partner</li>
+                <li>Workforce Planning & Future of Work Trends (AI, Gig Economy)</li>
+                <li>Mergers & Acquisitions (HR Due Diligence)</li>
+                <li>HR’s Role in Corporate Social Responsibility (CSR)</li>
+            </ul>
+        </div>
+
+        <div id="module10" class="module">
+            <h3>Module 10: Global HR & Emerging Trends</h3>
+            <ul class="topics">
+                <li>International HRM (Expatriate Management, Cultural Sensitivity)</li>
+                <li>HR in the Digital Age (AI, Automation, Chatbots)</li>
+                <li>The Future of HR (Hybrid Work, Gen Z Workforce, Skills-Based Hiring)</li>
+                <li>HR Certifications (SHRM, PHR, CIPD)</li>
+            </ul>
+        </div>
+
+
+        <!-- Continue with other modules... -->
+
+        <div class="resources">
+            <h2>Recommended Resources</h2>
+            <div class="resource-cards">
+                <div class="resource-card">
+                    <h4><i class="fas fa-book"></i> Books</h4>
+                    <ul>
+                        <li><strong>HR Disrupted</strong> by Lucy Adams</li>
+                        <li><strong>Work Rules!</strong> by Laszlo Bock</li>
+                    </ul>
+                </div>
+                <div class="resource-card">
+                    <h4><i class="fas fa-certificate"></i> Certifications</h4>
+                    <ul>
+                        <li>SHRM-CP/SCP</li>
+                        <li>PHR/SPHR</li>
+                        <li>CIPD Qualifications</li>
+                    </ul>
+                </div>
+                <div class="resource-card">
+                    <h4><i class="fas fa-tools"></i> Tools</h4>
+                    <ul>
+                        <li>Workday</li>
+                        <li>BambooHR</li>
+                        <li>LinkedIn Learning</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Your Company Name. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <div class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <script>
+        // Scroll to module function
+        function scrollToModule(moduleId) {
+            document.getElementById(moduleId).scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+
+        // Back to top button
+        const backToTopButton = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.add('visible');
+            } else {
+                backToTopButton.classList.remove('visible');
+            }
+        });
+
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Animate modules on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = 1;
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.module').forEach(module => {
+            module.style.opacity = 0;
+            module.style.transform = 'translateY(20px)';
+            module.style.transition = 'all 0.6s ease';
+            observer.observe(module);
+        });
+    </script>
+</body>
+</html>
