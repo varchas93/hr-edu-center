@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module 7: Employee Relations & Workplace Culture</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background-color: var(--primary);
+            color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        
+        h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+        
+        h2 {
+            color: var(--primary);
+            border-bottom: 2px solid var(--secondary);
+            padding-bottom: 0.5rem;
+            margin-top: 2rem;
+        }
+        
+        h3 {
+            color: var(--secondary);
+        }
+        
+        .icon {
+            margin-right: 10px;
+            color: var(--secondary);
+        }
+        
+        .concept-card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .concept-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .quiz-section {
+            background-color: var(--light);
+            padding: 2rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+        }
+        
+        .question {
+            margin-bottom: 1.5rem;
+        }
+        
+        .options {
+            margin-left: 1.5rem;
+        }
+        
+        .case-study {
+            background-color: #f9f9f9;
+            border-left: 4px solid var(--accent);
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .task-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        
+        .task-list li {
+            background: white;
+            margin-bottom: 0.5rem;
+            padding: 1rem;
+            border-radius: 4px;
+            box-shadow: 0 2px 3px rgba(0,0,0,0.1);
+        }
+        
+        button {
+            background-color: var(--secondary);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        button:hover {
+            background-color: #2980b9;
+        }
+        
+        .hidden {
+            display: none;
+        }
+        
+        .answer-feedback {
+            margin-top: 0.5rem;
+            padding: 0.5rem;
+            border-radius: 4px;
+        }
+        
+        .correct {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        
+        .incorrect {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            .concept-card, .quiz-section, .case-study {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1><i class="fas fa-users icon"></i>Employee Relations & Workplace Culture</h1>
+        <p>Creating harmonious workplaces through effective policies and positive culture</p>
+    </header>
+    
+    <section id="concepts">
+        <h2><i class="fas fa-lightbulb icon"></i>Key Concepts</h2>
+        
+        <div class="concept-card">
+            <h3><i class="fas fa-handshake icon"></i>Conflict Resolution & Mediation</h3>
+            <p>The process of addressing and resolving disagreements between employees or between employees and management. Effective conflict resolution involves active listening, impartial mediation, and finding mutually acceptable solutions. Common techniques include negotiation, facilitation, and arbitration.</p>
+        </div>
+        
+        <div class="concept-card">
+            <h3><i class="fas fa-gavel icon"></i>Handling Grievances & Disciplinary Actions</h3>
+            <p>A structured approach to addressing employee complaints (grievances) and enforcing workplace rules (disciplinary actions). This includes fair investigation processes, progressive discipline (verbal warning → written warning → suspension → termination), and maintaining documentation.</p>
+        </div>
+        
+        <div class="concept-card">
+            <h3><i class="fas fa-file-alt icon"></i>Workplace Policies</h3>
+            <p>Formal guidelines that govern employee behavior and work arrangements, including Remote Work Policies (guidelines for telecommuting) and Code of Conduct (standards for professional behavior, ethics, and compliance).</p>
+        </div>
+        
+        <div class="concept-card">
+            <h3><i class="fas fa-heart icon"></i>Building a Positive Organizational Culture</h3>
+            <p>Creating an environment that promotes employee engagement, satisfaction, and productivity. Elements include shared values, open communication, recognition programs, work-life balance, and diversity/inclusion initiatives.</p>
+        </div>
+        
+        <div class="concept-card">
+            <h3><i class="fas fa-exchange-alt icon"></i>HR's Role in Change Management</h3>
+            <p>HR facilitates organizational changes by communicating transitions, addressing employee concerns, providing training, and aligning HR systems with new directions. Key aspects include stakeholder analysis, resistance management, and reinforcement mechanisms.</p>
+        </div>
+    </section>
+    
+    <section class="quiz-section">
+        <h2><i class="fas fa-question-circle icon"></i>Knowledge Check</h2>
+        
+        <div class="quiz-container">
+            <h3>Multiple Choice Questions</h3>
+            
+            <div class="question">
+                <p>1. What is the first recommended step in conflict resolution?</p>
+                <div class="options">
+                    <label><input type="radio" name="q1" value="a"> a) Immediate disciplinary action</label><br>
+                    <label><input type="radio" name="q1" value="b"> b) Bringing both parties together to discuss the issue</label><br>
+                    <label><input type="radio" name="q1" value="c"> c) Ignoring the conflict hoping it resolves itself</label><br>
+                    <label><input type="radio" name="q1" value="d"> d) Transferring one employee to another department</label>
+                </div>
+                <div id="feedback-q1" class="answer-feedback hidden"></div>
+            </div>
+            
+            <div class="question">
+                <p>2. Progressive discipline typically begins with:</p>
+                <div class="options">
+                    <label><input type="radio" name="q2" value="a"> a) Termination</label><br>
+                    <label><input type="radio" name="q2" value="b"> b) Written warning</label><br>
+                    <label><input type="radio" name="q2" value="c"> c) Verbal warning</label><br>
+                    <label><input type="radio" name="q2" value="d"> d) Suspension without pay</label>
+                </div>
+                <div id="feedback-q2" class="answer-feedback hidden"></div>
+            </div>
+            
+            <div class="question">
+                <p>3. Which element is NOT typically part of remote work policies?</p>
+                <div class="options">
+                    <label><input type="radio" name="q3" value="a"> a) Equipment reimbursement guidelines</label><br>
+                    <label><input type="radio" name="q3" value="b"> b) Core hours availability requirements</label><br>
+                    <label><input type="radio" name="q3" value="c"> c) Employee's home address verification</label><br>
+                    <label><input type="radio" name="q3" value="d"> d) Data security protocols</label>
+                </div>
+                <div id="feedback-q3" class="answer-feedback hidden"></div>
+            </div>
+            
+            <div class="question">
+                <p>4. A positive organizational culture is characterized by:</p>
+                <div class="options">
+                    <label><input type="radio" name="q4" value="a"> a) Strict hierarchy with limited communication</label><br>
+                    <label><input type="radio" name="q4" value="b"> b) High employee turnover</label><br>
+                    <label><input type="radio" name="q4" value="c"> c) Shared values and open communication</label><br>
+                    <label><input type="radio" name="q4" value="d"> d) Rigid adherence to outdated traditions</label>
+                </div>
+                <div id="feedback-q4" class="answer-feedback hidden"></div>
+            </div>
+            
+            <div class="question">
+                <p>5. During organizational change, HR should:</p>
+                <div class="options">
+                    <label><input type="radio" name="q5" value="a"> a) Implement changes without warning to avoid resistance</label><br>
+                    <label><input type="radio" name="q5" value="b"> b) Communicate transparently and provide training</label><br>
+                    <label><input type="radio" name="q5" value="c"> c) Let managers handle all change-related issues</label><br>
+                    <label><input type="radio" name="q5" value="d"> d) Only address changes after they've been implemented</label>
+                </div>
+                <div id="feedback-q5" class="answer-feedback hidden"></div>
+            </div>
+            
+            <button id="check-mc-answers">Check Answers</button>
+            
+            <h3 style="margin-top: 2rem;">Short Answer Questions</h3>
+            
+            <div class="question">
+                <p>1. Describe two mediation techniques that can help resolve workplace conflicts.</p>
+                <textarea rows="4" style="width: 100%;"></textarea>
+            </div>
+            
+            <div class="question">
+                <p>2. What are three key components that should be included in a code of conduct policy?</p>
+                <textarea rows="4" style="width: 100%;"></textarea>
+            </div>
+            
+            <div class="question">
+                <p>3. Explain how HR can measure the effectiveness of organizational culture initiatives.</p>
+                <textarea rows="4" style="width: 100%;"></textarea>
+            </div>
+            
+            <h3>Essay Question</h3>
+            <div class="question">
+                <p>Discuss the challenges of managing a hybrid workforce (combination of remote and in-office employees) and propose strategies HR can implement to ensure fairness, productivity, and positive culture across both groups.</p>
+                <textarea rows="8" style="width: 100%;"></textarea>
+            </div>
+        </div>
+    </section>
+    
+    <section class="case-study">
+        <h2><i class="fas fa-briefcase icon"></i>Practical Case Study</h2>
+        
+        <h3>Scenario: TechForward's Hybrid Transition</h3>
+        <p>TechForward, a 150-employee software company, is transitioning from fully remote to a hybrid work model (3 days office/2 days remote). Employees are divided - some want full remote permanency, others miss office collaboration. Recently:</p>
+        
+        <ul>
+            <li>Two team leaders had a heated argument about resource allocation during a virtual meeting</li>
+            <li>Three employees filed grievances about being "forced" back to office</li>
+            <li>Productivity metrics show some teams adapting well while others struggle</li>
+            <li>Watercooler conversations reveal concerns about favoritism toward office workers</li>
+        </ul>
+        
+        <h3>Your Tasks as HR Director:</h3>
+        <ol class="task-list">
+            <li><i class="fas fa-comments icon"></i> Develop a conflict resolution approach for the team leaders' dispute</li>
+            <li><i class="fas fa-file-signature icon"></i> Create a response plan for the grievances about return-to-office</li>
+            <li><i class="fas fa-policy icon"></i> Propose policy adjustments for the hybrid model</li>
+            <li><i class="fas fa-heartbeat icon"></i> Design culture-building initiatives to unite the workforce</li>
+            <li><i class="fas fa-project-diagram icon"></i> Outline change management communication strategies</li>
+        </ol>
+        
+        <div id="case-study-responses" class="hidden">
+            <h3>Suggested Approaches:</h3>
+            <div class="concept-card">
+                <h4>1. Conflict Resolution Approach</h4>
+                <p>Begin with individual meetings with each leader to understand perspectives, then facilitate a mediated session focusing on interests rather than positions. Establish ground rules for professional communication and develop a resource allocation framework that considers both teams' needs.</p>
+            </div>
+            
+            <div class="concept-card">
+                <h4>2. Grievance Response Plan</h4>
+                <p>Acknowledge receipt of grievances within 48 hours. Conduct interviews to understand specific concerns. Review business rationale for hybrid model. Consider flexible arrangements for exceptional cases. Communicate final decisions with clear explanations and offer appeal process.</p>
+            </div>
+            
+            <div class="concept-card">
+                <h4>3. Hybrid Policy Adjustments</h4>
+                <p>Clarify eligibility criteria, office day coordination process, performance evaluation standards (outcome-based rather than presence-based), equipment provisions, and meeting protocols that don't disadvantage remote participants. Include trial period with feedback mechanism.</p>
+            </div>
+            
+            <div class="concept-card">
+                <h4>4. Culture-Building Initiatives</h4>
+                <p>Implement "anchor days" where all teams are in office on same days for collaboration. Create mixed remote/office project teams. Launch virtual and in-person social events. Recognize contributions equally regardless of work location. Train managers on inclusive leadership for hybrid teams.</p>
+            </div>
+            
+            <div class="concept-card">
+                <h4>5. Change Communication Strategies</h4>
+                <p>Multi-channel communication explaining the "why" behind changes. FAQ document addressing common concerns. Regular pulse surveys to monitor sentiment. Designated change champions in each department. Visible leadership support and modeling of hybrid behaviors. Celebration of early successes.</p>
+            </div>
+        </div>
+        
+        <button id="show-solutions">Show Suggested Approaches</button>
+    </section>
+    
+    <script>
+        document.getElementById('check-mc-answers').addEventListener('click', function() {
+            const answers = {
+                q1: 'b',
+                q2: 'c',
+                q3: 'c',
+                q4: 'c',
+                q5: 'b'
+            };
+            
+            for (let i = 1; i <= 5; i++) {
+                const questionName = 'q' + i;
+                const selectedOption = document.querySelector(`input[name="${questionName}"]:checked`);
+                const feedbackElement = document.getElementById(`feedback-${questionName}`);
+                
+                if (selectedOption) {
+                    feedbackElement.classList.remove('hidden');
+                    
+                    if (selectedOption.value === answers[questionName]) {
+                        feedbackElement.textContent = 'Correct! ' + getExplanation(questionName);
+                        feedbackElement.className = 'answer-feedback correct';
+                    } else {
+                        feedbackElement.textContent = 'Incorrect. The correct answer is ' + answers[questionName].toUpperCase() + '. ' + getExplanation(questionName);
+                        feedbackElement.className = 'answer-feedback incorrect';
+                    }
+                } else {
+                    feedbackElement.textContent = 'Please select an answer.';
+                    feedbackElement.className = 'answer-feedback incorrect';
+                    feedbackElement.classList.remove('hidden');
+                }
+            }
+        });
+        
+        document.getElementById('show-solutions').addEventListener('click', function() {
+            const solutionsDiv = document.getElementById('case-study-responses');
+            const button = document.getElementById('show-solutions');
+            
+            if (solutionsDiv.classList.contains('hidden')) {
+                solutionsDiv.classList.remove('hidden');
+                button.textContent = 'Hide Suggested Approaches';
+            } else {
+                solutionsDiv.classList.add('hidden');
+                button.textContent = 'Show Suggested Approaches';
+            }
+        });
+        
+        function getExplanation(questionNum) {
+            const explanations = {
+                q1: 'Bringing parties together to discuss issues is the foundation of conflict resolution, allowing for mutual understanding.',
+                q2: 'Progressive discipline starts with informal verbal warnings before escalating to more formal actions.',
+                q3: 'While equipment, availability, and security are standard, home address verification is typically unnecessary and invasive.',
+                q4: 'Shared values and open communication are hallmarks of positive cultures that engage employees.',
+                q5: 'Transparent communication and training are HRs primary tools for successful change management.',
+            };
+            
+            return explanations[questionNum];
+        }
+    </script>
+</body>
+</html>

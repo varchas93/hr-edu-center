@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module 6: Compensation & Benefits</title>
+    <style>
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2c3e50;
+            --accent-color: #e74c3c;
+            --light-bg: #f9f9f9;
+            --dark-text: #333;
+            --light-text: #777;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark-text);
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f7fa;
+        }
+        
+        header {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+        
+        h2 {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 0.5rem;
+            margin-top: 2rem;
+        }
+        
+        h3 {
+            color: var(--secondary-color);
+        }
+        
+        .section {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+        
+        .concept-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+        
+        .concept-card {
+            border-left: 4px solid var(--primary-color);
+            padding: 1rem;
+            background-color: var(--light-bg);
+            border-radius: 0 4px 4px 0;
+        }
+        
+        .concept-card h3 {
+            margin-top: 0;
+            color: var(--secondary-color);
+        }
+        
+        .quiz-container {
+            counter-reset: quiz-counter;
+        }
+        
+        .quiz-question {
+            margin: 1.5rem 0;
+            padding: 1rem;
+            background-color: var(--light-bg);
+            border-radius: 8px;
+            position: relative;
+        }
+        
+        .quiz-question::before {
+            counter-increment: quiz-counter;
+            content: counter(quiz-counter);
+            position: absolute;
+            left: -15px;
+            top: -15px;
+            background-color: var(--primary-color);
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        
+        .multiple-choice {
+            list-style-type: upper-alpha;
+            padding-left: 1.5rem;
+        }
+        
+        .multiple-choice li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .correct-answer {
+            font-weight: bold;
+            color: var(--accent-color);
+        }
+        
+        .case-study {
+            background-color: #e8f4fc;
+            border-left: 4px solid var(--primary-color);
+            padding: 1.5rem;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .case-study h3 {
+            margin-top: 0;
+        }
+        
+        .tasks {
+            background-color: white;
+            padding: 1rem;
+            border-radius: 4px;
+            margin: 1rem 0;
+        }
+        
+        .tasks ol {
+            padding-left: 1.5rem;
+        }
+        
+        button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        button:hover {
+            background-color: #2980b9;
+        }
+        
+        .hidden {
+            display: none;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 3rem;
+            color: var(--light-text);
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .concept-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Module 6: Compensation & Benefits</h1>
+        <p>Understanding modern compensation strategies and employee benefits programs</p>
+    </header>
+    
+    <div class="section" id="concepts">
+        <h2>Key Concepts</h2>
+        <div class="concept-grid">
+            <div class="concept-card">
+                <h3>Job Evaluation & Salary Benchmarking</h3>
+                <p><strong>Job Evaluation:</strong> Systematic process to determine the relative worth of jobs within an organization.</p>
+                <p><strong>Salary Benchmarking:</strong> Comparing compensation data against industry standards to ensure competitive pay.</p>
+            </div>
+            
+            <div class="concept-card">
+                <h3>Pay Structures</h3>
+                <p><strong>Base Pay:</strong> Fixed salary or hourly wage an employee earns.</p>
+                <p><strong>Variable Pay:</strong> Performance-based compensation (commissions, incentives).</p>
+                <p><strong>Bonuses:</strong> One-time payments for achieving targets or exceptional performance.</p>
+            </div>
+            
+            <div class="concept-card">
+                <h3>Employee Benefits</h3>
+                <p><strong>Health Insurance:</strong> Medical, dental, and vision coverage.</p>
+                <p><strong>Retirement Plans:</strong> 401(k), pensions, or other savings programs.</p>
+                <p><strong>Wellness Programs:</strong> Initiatives promoting employee health (gym memberships, mental health support).</p>
+            </div>
+            
+            <div class="concept-card">
+                <h3>Equity Compensation</h3>
+                <p><strong>Stock Options:</strong> Rights to buy company stock at a set price.</p>
+                <p><strong>ESOPs:</strong> Employee Stock Ownership Plans granting company shares.</p>
+            </div>
+            
+            <div class="concept-card">
+                <h3>Pay Transparency & Equity</h3>
+                <p><strong>Pay Transparency:</strong> Openness about compensation practices.</p>
+                <p><strong>Pay Equity:</strong> Ensuring fair pay for similar roles regardless of gender, race, etc.</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="section" id="quiz">
+        <h2>Comprehensive Quiz</h2>
+        <div class="quiz-container">
+            <div class="quiz-question">
+                <h3>Multiple Choice</h3>
+                <p>What is the primary purpose of salary benchmarking?</p>
+                <ul class="multiple-choice">
+                    <li>A) To reduce overall payroll costs</li>
+                    <li class="correct-answer">B) To align pay with industry standards</li>
+                    <li>C) To eliminate variable pay components</li>
+                    <li>D) To standardize all salaries across the company</li>
+                </ul>
+                <button onclick="toggleAnswer('answer1')">Show Explanation</button>
+                <div id="answer1" class="hidden">
+                    <p><strong>Explanation:</strong> Salary benchmarking helps organizations remain competitive in the job market by comparing their compensation packages with industry standards.</p>
+                </div>
+            </div>
+            
+            <div class="quiz-question">
+                <h3>Multiple Choice</h3>
+                <p>Which of the following is an example of variable pay?</p>
+                <ul class="multiple-choice">
+                    <li>A) Base salary</li>
+                    <li class="correct-answer">B) Annual performance bonus</li>
+                    <li>C) Health insurance benefits</li>
+                    <li>D) Paid time off</li>
+                </ul>
+                <button onclick="toggleAnswer('answer2')">Show Explanation</button>
+                <div id="answer2" class="hidden">
+                    <p><strong>Explanation:</strong> Variable pay is compensation that fluctuates based on performance, unlike fixed benefits or base salary.</p>
+                </div>
+            </div>
+            
+            <div class="quiz-question">
+                <h3>Short Answer</h3>
+                <p>Define pay equity and explain why it matters in modern organizations.</p>
+                <button onclick="toggleAnswer('answer3')">Show Model Answer</button>
+                <div id="answer3" class="hidden">
+                    <p><strong>Model Answer:</strong> Pay equity ensures employees in similar roles with comparable experience and performance receive fair and equal compensation, regardless of gender, race, or other protected characteristics. It matters because it promotes workplace fairness, reduces discrimination, improves employee morale, and helps companies comply with equal pay legislation.</p>
+                </div>
+            </div>
+            
+            <div class="quiz-question">
+                <h3>Essay Question</h3>
+                <p>Discuss the advantages and disadvantages of pay transparency in organizations. Consider impacts on employee motivation, recruitment, and workplace culture.</p>
+                <button onclick="toggleAnswer('answer4')">Show Key Points</button>
+                <div id="answer4" class="hidden">
+                    <p><strong>Key Points:</strong></p>
+                    <p><strong>Advantages:</strong></p>
+                    <ul>
+                        <li>Builds trust between employees and management</li>
+                        <li>Reduces gender and racial pay gaps</li>
+                        <li>Improves employee perception of fairness</li>
+                        <li>Can attract candidates who value transparency</li>
+                        <li>Reduces time spent on salary negotiations</li>
+                    </ul>
+                    <p><strong>Disadvantages:</strong></p>
+                    <ul>
+                        <li>May cause dissatisfaction among employees comparing salaries</li>
+                        <li>Reduces flexibility in compensation decisions</li>
+                        <li>Could reveal uncomfortable pay disparities</li>
+                        <li>May require significant cultural change</li>
+                        <li>Potentially limits individualized compensation approaches</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="section" id="case-study">
+        <h2>Practical Case Study</h2>
+        <div class="case-study">
+            <h3>TechStart Inc. Compensation Strategy Overhaul</h3>
+            <p><strong>Scenario:</strong> TechStart Inc., a fast-growing SaaS company with 150 employees, is facing challenges in attracting and retaining top tech talent. Their current compensation structure hasn't been updated in 3 years, and a recent employee survey revealed dissatisfaction with benefits and concerns about pay equity.</p>
+            
+            <div class="tasks">
+                <h4>Your Tasks:</h4>
+                <ol>
+                    <li>Conduct job evaluations for key roles (software engineers, product managers, sales executives)</li>
+                    <li>Research salary benchmarks for these roles in the competitive tech market</li>
+                    <li>Design a modern pay structure incorporating:
+                        <ul>
+                            <li>Competitive base pay</li>
+                            <li>Performance-based variable pay</li>
+                            <li>Equity compensation options</li>
+                        </ul>
+                    </li>
+                    <li>Address pay equity gaps identified in the recent audit (showing 8% gender pay gap in engineering roles)</li>
+                    <li>Propose a benefits package that stands out in the competitive tech market</li>
+                </ol>
+            </div>
+            
+            <h4>Discussion Questions:</h4>
+            <ol>
+                <li>How would you prioritize these tasks in your first 90 days?</li>
+                <li>What specific benefits would you recommend to differentiate TechStart from larger tech companies?</li>
+                <li>How would you communicate changes to the compensation structure to existing employees?</li>
+                <li>What metrics would you use to evaluate the success of the new compensation strategy?</li>
+            </ol>
+            
+            <button onclick="toggleAnswer('case-study-answers')">Show Suggested Approach</button>
+            <div id="case-study-answers" class="hidden">
+                <h4>Suggested Approach:</h4>
+                <p><strong>Prioritization:</strong> Begin with the pay equity audit to address immediate concerns, then move to benchmarking and job evaluations before designing the new structure.</p>
+                <p><strong>Differentiating Benefits:</strong> Consider student loan repayment assistance, unlimited learning budgets, extended parental leave, or flexible work arrangements beyond standard tech benefits.</p>
+                <p><strong>Communication Strategy:</strong> Use a phased approach - first leadership alignment, then manager training, followed by all-hands meetings with detailed FAQs.</p>
+                <p><strong>Success Metrics:</strong> Track offer acceptance rates, employee retention, pay equity metrics, and regular engagement survey results.</p>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <p>HR Certification Program &copy; 2023 | Module 6: Compensation & Benefits</p>
+    </footer>
+    
+    <script>
+        function toggleAnswer(id) {
+            const element = document.getElementById(id);
+            element.classList.toggle('hidden');
+            
+            const button = element.previousElementSibling;
+            if (element.classList.contains('hidden')) {
+                button.textContent = 'Show ' + button.textContent.replace('Hide', '');
+            } else {
+                button.textContent = 'Hide ' + button.textContent.replace('Show', '');
+            }
+        }
+    </script>
+</body>
+</html>
