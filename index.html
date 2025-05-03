@@ -1,133 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-<head> <style>/* Global Reset and Base Styles */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }
-    
-    body {
-      background-color: #f5f7fa;
-      color: #333;
-      line-height: 1.6;
-      padding: 0 20px;
-    }
-    
-    header {
-      background-color: #38bbe3;
-      color: #fff;
-      padding: 20px 0;
-      text-align: center;
-      border-bottom: 4px solid #38bbe3;
-    }
-    
-    header h1 {
-      font-size: 2.5rem;
-    }
-    
-    nav {
-      background-color: #38bbe3;
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      padding: 10px 0;
-    }
-    
-    nav a {
-      color: #dad7cd;
-      text-decoration: none;
-      margin: 10px 20px;
-      font-weight: bold;
-      transition: color 0.3s ease;
-    }
-    
-    nav a:hover {
-      color: #38bbe3;
-    }
-    
-    /* Main content styling */
-    main {
-      max-width: 1000px;
-      margin: 30px auto;
-      background: #ffffff;
-      padding: 30px;
-      border-radius: 12px;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    }
-    
-    section {
-      margin-bottom: 40px;
-    }
-    
-    h2 {
-      color: #38bbe3;
-      margin-bottom: 15px;
-      font-size: 1.8rem;
-      border-left: 5px solid #38bbe3;
-      padding-left: 10px;
-    }
-    
-    p, li {
-      margin-bottom: 10px;
-      font-size: 1rem;
-    }
-    
-    ul {
-      padding-left: 20px;
-    }
-    
-    /* Buttons */
-    .button {
-      display: inline-block;
-      background-color: #38bbe3;
-      color: #fff;
-      padding: 10px 18px;
-      margin-top: 15px;
-      border-radius: 6px;
-      text-decoration: none;
-      transition: background-color 0.3s ease;
-    }
-    
-    .button:hover {
-      background-color: #38bbe3;
-    }
-    
-    /* Footer */
-    footer {
-      background-color: #38bbe3;
-      color: #fff;
-      text-align: center;
-      padding: 15px 0;
-      margin-top: 50px;
-      font-size: 0.9rem;
-    }
-    
-    /* Responsive layout */
-    @media (max-width: 768px) {
-      header h1 {
-        font-size: 2rem;
-      }
-    
-      nav {
-        flex-direction: column;
-      }
-    
-      nav a {
-        margin: 8px 0;
-      }
-    
-      main {
-        padding: 20px;
-      }
-    }
-    </style>
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="HR Edu Center - Comprehensive learning resources for HR professionals">
     <title>Learning Resources | HR Edu Center</title>
     <style>
-
         :root {
             --primary-color: #2c3e50;
             --secondary-color: #3498db;
@@ -154,6 +32,35 @@
             width: 85%;
             max-width: 1200px;
             margin: 0 auto;
+        }
+        
+        /* Accessibility styles */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+
+        /* Skip to main content link for accessibility */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: var(--secondary-color);
+            color: white;
+            padding: 8px;
+            z-index: 1000;
+            transition: top 0.3s;
+        }
+        
+        .skip-link:focus {
+            top: 0;
         }
         
         header {
@@ -183,6 +90,16 @@
             color: var(--secondary-color);
         }
         
+        /* Mobile menu button */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
         nav ul {
             display: flex;
             list-style: none;
@@ -200,12 +117,22 @@
             transition: all 0.3s ease;
         }
         
-        nav ul li a:hover {
+        nav ul li a:hover,
+        nav ul li a:focus {
+            background-color: var(--secondary-color);
+            outline: none;
+        }
+        
+        nav ul li a.active {
             background-color: var(--secondary-color);
         }
         
         .page-header {
-            background: linear-gradient(rgba(44, 62, 80, 0.9), rgba(44, 62, 80, 0.9)), url('/api/placeholder/1200/300') center/cover no-repeat;
+            background-color: var(--dark-color);
+            background-image: linear-gradient(rgba(44, 62, 80, 0.9), rgba(44, 62, 80, 0.9)), url('/api/placeholder/1200/300');
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
             color: white;
             text-align: center;
             padding: 3rem 1rem;
@@ -220,6 +147,36 @@
             font-size: 1.2rem;
             max-width: 700px;
             margin: 0 auto;
+        }
+        
+        /* Error message styles */
+        .error-message {
+            display: none;
+            background-color: #fff3cd;
+            color: #856404;
+            border-left: 4px solid #ffeeba;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+        
+        /* Loading indicator */
+        .loading {
+            display: none;
+            text-align: center;
+            padding: 1rem;
+        }
+        
+        .loading::after {
+            content: "Loading...";
+            display: inline-block;
+            animation: ellipsis 1.5s infinite;
+        }
+        
+        @keyframes ellipsis {
+            0% { content: "Loading."; }
+            33% { content: "Loading.."; }
+            66% { content: "Loading..."; }
         }
         
         .features {
@@ -244,7 +201,7 @@
             gap: 2rem;
         }
         
-        .feature-card {
+        .feature-card { 
             background-color: var(--light-color);
             border-radius: 8px;
             padding: 2rem;
@@ -252,7 +209,8 @@
             transition: transform 0.3s ease;
         }
         
-        .feature-card:hover {
+        .feature-card:hover,
+        .feature-card:focus-within {
             transform: translateY(-5px);
         }
         
@@ -260,6 +218,17 @@
             color: var(--primary-color);
             margin-bottom: 1rem;
             font-size: 1.4rem;
+        }
+        
+        .feature-card a {
+            color: inherit;
+            text-decoration: none;
+        }
+        
+        .feature-card a:hover,
+        .feature-card a:focus {
+            color: var(--secondary-color);
+            outline: none;
         }
         
         .feature-icon {
@@ -298,8 +267,10 @@
             cursor: pointer;
         }
         
-        .topic-card:hover {
+        .topic-card:hover,
+        .topic-card:focus {
             background-color: rgba(255, 255, 255, 0.2);
+            outline: none;
         }
         
         .topic-card h3 {
@@ -404,8 +375,10 @@
             transition: color 0.3s ease;
         }
         
-        .footer-section ul li a:hover {
+        .footer-section ul li a:hover,
+        .footer-section ul li a:focus {
             color: white;
+            outline: none;
         }
         
         .footer-bottom {
@@ -415,14 +388,35 @@
             border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
         
+        /* Responsive styles */
         @media (max-width: 768px) {
-            .header-content {
-                flex-direction: column;
-                text-align: center;
+            .menu-toggle {
+                display: block;
             }
             
-            nav ul {
-                margin-top: 1rem;
+            .nav-menu {
+                position: fixed;
+                left: -100%;
+                top: 70px;
+                width: 100%;
+                background-color: var(--primary-color);
+                flex-direction: column;
+                text-align: center;
+                transition: 0.3s;
+                box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+                padding: 1rem 0;
+            }
+            
+            .nav-menu.active {
+                left: 0;
+            }
+            
+            nav ul li {
+                margin: 1rem 0;
+            }
+            
+            .header-content {
+                padding: 0 1rem;
             }
             
             .path-steps::before {
@@ -439,138 +433,176 @@
                 font-size: 1rem;
             }
         }
+        
+        /* Utility Classes */
+        .hidden {
+            display: none;
+        }
+        
+        .visible {
+            display: block;
+        }
+        
+        /* Offline indicator */
+        .offline-indicator {
+            display: none;
+            background-color: #f8d7da;
+            color: #721c24;
+            padding: 0.5rem 1rem;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+        }
     </style>
 </head>
 <body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <div id="offline-indicator" class="offline-indicator">
+        You are currently offline. Some features may be unavailable.
+    </div>
+    
     <header>
-        
         <div class="container header-content">
             <a href="index.html" class="logo">HR<span>Edu</span>Center</a>
+            <button id="menu-toggle" class="menu-toggle" aria-expanded="false" aria-controls="nav-menu">
+                ☰ <span class="sr-only">Menu</span>
+            </button>
             <nav>
-                <ul>
-                    <li><a href="login.html" class="active">login</a></li>
+                <ul id="nav-menu" class="nav-menu">
+                    <li><a href="login.html" class="active">Login</a></li>
                     <li><a href="about.html">About</a></li>
                     <li><a href="resources.html">Resources</a></li>
-                    <li><a href="index.html#contact">Contact</a></li>
+                    <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
         </div>
     </header>
     
+    <div id="content-error" class="error-message container">
+        Error loading content. Please refresh the page or try again later.
+    </div>
+    
+    <div id="loading-indicator" class="loading container"></div>
 
-    <section class="page-header">
-        <div class="container">
-            <h1>HR Learning Resources</h1>
-            <p>Explore our comprehensive collection of human resource management topics and learning materials</p>
-        </div>
-    </section>
+    <main id="main-content">
+        <section class="page-header">
+            <div class="container">
+                <h1>HR Learning Resources</h1>
+                <p>Explore our comprehensive collection of human resource management topics and learning materials</p>
+            </div>
+        </section>
 
-    <section class="features">
-        <div class="container">
-            <div class="features-heading">
-                <h2>Why Learn with Us</h2>
-                <p>Discover how our platform helps you master HR concepts and practices</p>
+        <section class="features">
+            <div class="container">
+                <div class="features-heading">
+                    <h2>Why Learn with Us</h2>
+                    <p>Discover how our platform helps you master HR concepts and practices</p>
+                </div>
+                <div class="features-grid">
+                    <div class="feature-card"> 
+                        <div class="feature-icon" aria-hidden="true">📚</div>
+                        <h3><a href="hr-curriculum.html" class="nav-link">HR Curriculum</a></h3>
+                        <p>Our structured learning path covers everything from HR basics to advanced strategic concepts, ensuring a well-rounded education.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon" aria-hidden="true">🧩</div>
+                        <h3><a href="practical-examples.html" class="nav-link">Practical Examples</a></h3>
+                        <p>Learn through real-world case studies and scenarios that demonstrate how HR principles are applied in various industries.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon" aria-hidden="true">🚀</div>
+                        <h3><a href="Ai-tools.html" class="nav-link">AI Tools</a></h3>
+                        <p>Gain skills and knowledge that enhance your employability and prepare you for various HR roles and responsibilities.</p>
+                    </div>
+                </div>
             </div>
-            <div class="features-grid">
-                <div class="feature-card"> 
-                    <div class="feature-icon">📚</div>
-                    <h3><a href="hr-curriculum.html" class="nav-link">HR Curriculum</a></h3>
-                    <p>Our structured learning path covers everything from HR basics to advanced strategic concepts, ensuring a well-rounded education.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🧩</div>
-                    <h3><a href="practical-examples.html" class="nav-link">Practical Examples</a></h3>
-                    <p>Learn through real-world case studies and scenarios that demonstrate how HR principles are applied in various industries.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🚀</div>
-                    <h3><a href="Ai-tools.html" class="nav-link">AI Tools </a></h3>
-                    <p>Gain skills and knowledge that enhance your employability and prepare you for various HR roles and responsibilities.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <section class="topics" id="topics">
-        <div class="container">
-            <div class="topics-heading">
-                <h2>Explore HR Topics</h2>
-                <p>Dive into key areas of human resource management</p>
+        <section class="topics" id="topics">
+            <div class="container">
+                <div class="topics-heading">
+                    <h2>Explore HR Topics</h2>
+                    <p>Dive into key areas of human resource management</p>
+                </div>
+                <div class="topics-grid">
+                    <div class="topic-card" tabindex="0">
+                        <h3>HR Fundamentals</h3>
+                        <p>Introduction to core HR concepts, functions, and evolution of the field.</p>
+                    </div>
+                    <div class="topic-card" tabindex="0">
+                        <h3>Recruitment & Selection</h3>
+                        <p>Strategies and best practices for attracting and hiring the right talent.</p>
+                    </div>
+                    <div class="topic-card" tabindex="0">
+                        <h3>Training & Development</h3>
+                        <p>Methods for employee growth, skills enhancement, and continuous learning.</p>
+                    </div>
+                    <div class="topic-card" tabindex="0">
+                        <h3>Performance Management</h3>
+                        <p>Systems for evaluating, improving, and rewarding employee performance.</p>
+                    </div>
+                    <div class="topic-card" tabindex="0">
+                        <h3>Compensation & Benefits</h3>
+                        <p>Designing competitive reward packages and incentive structures.</p>
+                    </div>
+                    <div class="topic-card" tabindex="0">
+                        <h3>Employment Law</h3>
+                        <p>Legal frameworks governing employment relationships and compliance.</p>
+                    </div>
+                </div>
             </div>
-            <div class="topics-grid">
-                <div class="topic-card">
-                    <h3>HR Fundamentals</h3>
-                    <p>Introduction to core HR concepts, functions, and evolution of the field.</p>
-                </div>
-                <div class="topic-card">
-                    <h3>Recruitment & Selection</h3>
-                    <p>Strategies and best practices for attracting and hiring the right talent.</p>
-                </div>
-                <div class="topic-card">
-                    <h3>Training & Development</h3>
-                    <p>Methods for employee growth, skills enhancement, and continuous learning.</p>
-                </div>
-                <div class="topic-card">
-                    <h3>Performance Management</h3>
-                    <p>Systems for evaluating, improving, and rewarding employee performance.</p>
-                </div>
-                <div class="topic-card">
-                    <h3>Compensation & Benefits</h3>
-                    <p>Designing competitive reward packages and incentive structures.</p>
-                </div>
-                <div class="topic-card">
-                    <h3>Employment Law</h3>
-                    <p>Legal frameworks governing employment relationships and compliance.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <section class="learning-path">
-        <div class="container">
-            <div class="learning-path-heading">
-                <h2>Recommended Learning Path</h2>
-                <p>Follow this structured path to build your HR knowledge from basics to advanced concepts</p>
+        <section class="learning-path">
+            <div class="container">
+                <div class="learning-path-heading">
+                    <h2>Recommended Learning Path</h2>
+                    <p>Follow this structured path to build your HR knowledge from basics to advanced concepts</p>
+                </div>
+                <div class="path-steps">
+                    <div class="path-step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h3>Introduction to HR Management</h3>
+                            <p>Begin with the fundamentals of HR, understanding its history, evolution, and core functions in organizations.</p>
+                        </div>
+                    </div>
+                    <div class="path-step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h3>Recruitment & Workforce Planning</h3>
+                            <p>Learn how organizations identify staffing needs and implement effective recruitment strategies.</p>
+                        </div>
+                    </div>
+                    <div class="path-step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h3>Employee Training & Development</h3>
+                            <p>Explore methods for enhancing employee skills, creating development plans, and measuring learning outcomes.</p>
+                        </div>
+                    </div>
+                    <div class="path-step">
+                        <div class="step-number">4</div>
+                        <div class="step-content">
+                            <h3>Performance Management Systems</h3>
+                            <p>Study the approaches to evaluating, improving, and recognizing employee contributions.</p>
+                        </div>
+                    </div>
+                    <div class="path-step">
+                        <div class="step-number">5</div>
+                        <div class="step-content">
+                            <h3>Strategic HR Management</h3>
+                            <p>Advance to the strategic role of HR in organizational success and competitive advantage.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="path-steps">
-                <div class="path-step">
-                    <div class="step-number">1</div>
-                    <div class="step-content">
-                        <h3>Introduction to HR Management</h3>
-                        <p>Begin with the fundamentals of HR, understanding its history, evolution, and core functions in organizations.</p>
-                    </div>
-                </div>
-                <div class="path-step">
-                    <div class="step-number">2</div>
-                    <div class="step-content">
-                        <h3>Recruitment & Workforce Planning</h3>
-                        <p>Learn how organizations identify staffing needs and implement effective recruitment strategies.</p>
-                    </div>
-                </div>
-                <div class="path-step">
-                    <div class="step-number">3</div>
-                    <div class="step-content">
-                        <h3>Employee Training & Development</h3>
-                        <p>Explore methods for enhancing employee skills, creating development plans, and measuring learning outcomes.</p>
-                    </div>
-                </div>
-                <div class="path-step">
-                    <div class="step-number">4</div>
-                    <div class="step-content">
-                        <h3>Performance Management Systems</h3>
-                        <p>Study the approaches to evaluating, improving, and recognizing employee contributions.</p>
-                    </div>
-                </div>
-                <div class="path-step">
-                    <div class="step-number">5</div>
-                    <div class="step-content">
-                        <h3>Strategic HR Management</h3>
-                        <p>Advance to the strategic role of HR in organizational success and competitive advantage.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
     <footer>
         <div class="container">
@@ -580,8 +612,8 @@
                     <ul>
                         <li><a href="index.html">Home</a></li>
                         <li><a href="#topics">HR Topics</a></li>
-                        <li><a href="index.html#about">About Us</a></li>
-                        <li><a href="index.html#resources">Resources</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="resources.html">Resources</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
@@ -597,7 +629,7 @@
                     <h3>Contact Us</h3>
                     <ul>
                         <li><a href="mailto:contact@hreducenter.com">contact@hreducenter.com</a></li>
-                        <li><a href="#">Submit Feedback</a></li>
+                        <li><a href="#" id="feedback-link">Submit Feedback</a></li>
                         <li><a href="#">Support</a></li>
                     </ul>
                 </div>
@@ -607,5 +639,125 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.addEventListener('DOMContentLoaded', function() {
+            try {
+                const menuToggle = document.getElementById('menu-toggle');
+                const navMenu = document.getElementById('nav-menu');
+                
+                if (menuToggle && navMenu) {
+                    menuToggle.addEventListener('click', function() {
+                        const expanded = menuToggle.getAttribute('aria-expanded') === 'true' || false;
+                        menuToggle.setAttribute('aria-expanded', !expanded);
+                        navMenu.classList.toggle('active');
+                    });
+                }
+                
+                // Handle content loading
+                const mainContent = document.getElementById('main-content');
+                const loadingIndicator = document.getElementById('loading-indicator');
+                const contentError = document.getElementById('content-error');
+                
+                // Show loading indicator
+                function showLoading() {
+                    if (loadingIndicator) loadingIndicator.style.display = 'block';
+                    if (mainContent) mainContent.style.display = 'none';
+                }
+                
+                // Hide loading indicator
+                function hideLoading() {
+                    if (loadingIndicator) loadingIndicator.style.display = 'none';
+                    if (mainContent) mainContent.style.display = 'block';
+                }
+                
+                // Show error message
+                function showError() {
+                    if (contentError) contentError.style.display = 'block';
+                    if (loadingIndicator) loadingIndicator.style.display = 'none';
+                }
+                
+                // Check if page loaded successfully
+                if (document.readyState === 'complete') {
+                    hideLoading();
+                } else {
+                    showLoading();
+                    window.addEventListener('load', hideLoading);
+                    // Simulate timeout for demo purposes
+                    setTimeout(function() {
+                        hideLoading();
+                    }, 1000);
+                }
+                
+                // Offline detection
+                const offlineIndicator = document.getElementById('offline-indicator');
+                
+                function updateOnlineStatus() {
+                    if (offlineIndicator) {
+                        if (navigator.onLine) {
+                            offlineIndicator.style.display = 'none';
+                        } else {
+                            offlineIndicator.style.display = 'block';
+                        }
+                    }
+                }
+                
+                window.addEventListener('online', updateOnlineStatus);
+                window.addEventListener('offline', updateOnlineStatus);
+                updateOnlineStatus(); // Initial check
+                
+                // Form validation for feedback (example)
+                const feedbackLink = document.getElementById('feedback-link');
+                if (feedbackLink) {
+                    feedbackLink.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        // Open feedback form or modal
+                        alert('Feedback form coming soon!');
+                    });
+                }
+                
+            } catch (error) {
+                console.error('Error initializing page:', error);
+                showError();
+            }
+        });
+        
+        // Handle link errors
+        document.addEventListener('click', function(e) {
+            if (e.target.tagName === 'A' && e.target.getAttribute('href')) {
+                const href = e.target.getAttribute('href');
+                
+                // If it's a placeholder link
+                if (href === '#' || href === 'javascript:void(0)') {
+                    e.preventDefault();
+                    alert('This feature is coming soon!');
+                }
+                
+                // Error handling for external links
+                if (href.startsWith('http') && !href.includes(window.location.hostname)) {
+                    e.preventDefault();
+                    
+                    try {
+                        // You could implement additional checks here
+                        window.open(href, '_blank');
+                    } catch (error) {
+                        console.error('Failed to open external link:', error);
+                        alert('Unable to open external link. Please try again later.');
+                    }
+                }
+            }
+        });
+        
+        // Error handling for images
+        document.addEventListener('error', function(e) {
+            if (e.target.tagName === 'IMG') {
+                e.preventDefault();
+                // Replace broken images with placeholder
+                e.target.src = '/api/placeholder/300/200';
+                e.target.alt = 'Image could not be loaded';
+            }
+        }, true);
+    </script>
 </body>
 </html>
